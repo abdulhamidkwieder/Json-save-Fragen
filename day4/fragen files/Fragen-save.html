@@ -39,11 +39,39 @@
             antwort2:$('#A2').val(),
             antwort3:$('#A3').val(),
             antwort4:$('#A4').val(),
-            richtig:$('[name=rx]').val()
+            richtig:$('[name=rx]:checked').val(),
+            schwierigkeit:$('#schwierigkeit').val()
+            },
+            //check
+            for (let i in requestData ) {
+                console.log( i );
+			if ( requestData[i] == '' ) {
+				$( '#'+i ).addClass( 'error' );
+			} else {
+				$( '#'+i ).removeClass( 'error' );
+			}
+            }
+            if ($('.error').length == 0) {
+                $.ajax({
+				url:'http://localhost/day4/ajax.php',
+				method:'POST',
+				data:requestData,
+				success:function(response){
+					if ( response.gespeichert ) {
+						alert( 'Frage gespeichert!');
+						$( 'form' ).get(0).reset(); // Zurücksetzen
+					} else {
+						alert( 'Fehler, Frage konnte nicht gespeichert werden.');
+					}
+				}
+			});
             }
         });
     });
         </script>
+        <style>
+        	.error { background:red; color:#fff; }
+        </style>
 </head>
 <body>
   <form action="?" method="POST">

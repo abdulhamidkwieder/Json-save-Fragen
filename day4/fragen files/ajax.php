@@ -7,7 +7,19 @@ header('Access-Control-Allow-Headers: Origin,x-Requested-with,Content-Type, Acce
 header('Content-Type:application/json');
 
 $antwort = new stdClass();
+$antwort->x = str_replace( ',' , '.' , $_POST['x'] ); // wandelt , in . um
 
+if ( is_numeric( $antwort->x ) ) {
+  $antwort->check = true;
+} else {
+  $antwort->check = false;
+}
+
+echo json_encode( $antwort ); // wandelt Objekt in JSON um
+
+
+
+/*
 function getFragen() {
     $jsondatei = file_get_contents('fragen.json');
     $json = json_decode( $jsondatei);
@@ -21,7 +33,7 @@ function saveFragen($fragen) {
     file_put_contents('fragen.json', $jsondatei);
 }
 
-/* $antwort->x = str_replace(',','.', $_POST['x']);
+ $antwort->x = str_replace(',','.', $_POST['x']);
 
 if (is_numeric($antwort->x)) {
     //echo '{"check":true}';
@@ -29,11 +41,11 @@ if (is_numeric($antwort->x)) {
 } else {
   //  echo '{"check":false}';
   $antwort->check =false;
-} */
+} 
 
-/* if (condition) {
+if (condition) {
     # code...
-} */
+} 
 
 switch ($_POST['requestart']) {
     case 'speichern':
@@ -54,6 +66,6 @@ switch ($_POST['requestart']) {
     break;
     
 }
-
+*/
 // echo json_encode($antwort);
 
