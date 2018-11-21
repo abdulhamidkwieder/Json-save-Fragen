@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Basics</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function () {
+    
+    $('button').on('click', function() {
+
+
+
+        $.ajax({
+            url:'http://wifi.1av.at/508/test.php',
+            method:'GET',
+            success:function( response ) {
+                $( 'ausgabe' ).html(response);
+            }
+        })
+    }); // onclick
+
+
+    }); // ready
+    </script>
+</head>
+<body>
+    <div id="ausgabe"></div>
+    <button>Lade Inhalt vom Server</button>
+</body>
+</html>

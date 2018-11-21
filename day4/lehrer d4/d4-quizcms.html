@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+	<title>Quiz Fragen Verwaltung</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+/*
+$.ajax({
+	url:'http://localhost/js/server/quiz.php',
+	method:'POST',
+	data:{rsequestart:'ausgabe'},
+	success:function(response){
+		console.log( response );
+	}
+});
+*/
+$( document ).ready( function() {
+
+	$( '#new' ).on('click', function(event) {
+		event.preventDefault();
+		var requestData = {
+			requestart:"speichern",
+		  frage:$('#frage').val(),
+		  antwort1:$('#antwort1').val(),
+			antwort2:$('#antwort2').val(),
+			antwort3:$('#antwort3').val(),
+			antwort4:$('#antwort4').val(),
+		  richtig:$('input[name=richtig]:checked').val(),
+		  schwierigkeit:$('#schwierigkeit').val()
+		};
+		// check
+		for ( let i in requestData ) { // schleife durch objekt
+			console.log( i );
+			if ( requestData[i] == '' ) {
+				$( '#'+i ).addClass( 'error' );
+			} else {
+				$( '#'+i ).removeClass( 'error' );
+			}
+		}
+
+		if ( $( '.error').length == 0 ) {
+
+			$.ajax({
+				url:'http://localhost/js/server/quiz.php',
+				method:'POST',
+				data:requestData,
+				success:function(response){
+					if ( response.gespeichert ) {
+						alert( 'Frage gespeichert!');
+						$( 'form' ).get(0).reset(); // Zurücksetzen
+					} else {
+						alert( 'Fehler, Frage konnte nicht gespeichert werden.');
+					}
+				}
+			});
+
+		} //if
+	});
+
+
+});
+
+
+	</script>
+	<style>
+	body, input, select, button { font:30px Arial;}
+	.error { background:red; color:#fff; }
+	</style>
+</head>
+<body>
+	<form method="post" action="?" >
+		<h1>Neue Frage</h1>
+		Frage:<input type="text" id="frage"><br>
+		A:<input type="radio" name="richtig" value="0" checked><input type="text" id="antwort1">
+		<br>
+		B:<input type="radio" name="richtig" value="1"><input type="text" id="antwort2">
+		<br>
+		C:<input type="radio" name="richtig" value="2"><input type="text" id="antwort3">
+		<br>
+		D:<input type="radio" name="richtig" value="3"><input type="text" id="antwort4">
+		<br>
+		Schwierigkeit: <select id="schwierigkeit">
+			<option value="">bitte wählen</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option></select>
+			<br><button id="new">Speichern</button></form><hr>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style2.css">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>Fragen einfügen</title>
+    <script>
+      /*$.ajax({
+          url: 'http://localhost/day4/ajax.php',
+          method: 'POST',
+          data: {requestart:'ausgabe'},
+          success:function(response) {
+              console.log(response);
+          }
+          {"fragen":[
+              {
+               "frage":$("#frage").val(),
+               "antworten": [
+               "#A1",
+               "#A2",
+               "#A3",
+               "#A4"
+                 ],
+               "richtig": ".radio true",
+               "schwerigkeit":1
+               },   
+          }
+            })*/
+    $(document).ready (function() {
+        $('#btn_submit').on('click', function(event){
+            event.preventDefault();
+            var requestData = {
+            requestart:"speichern",
+            frage:$('#frage').val(),
+            antwort1:$('#A1').val(),
+            antwort2:$('#A2').val(),
+            antwort3:$('#A3').val(),
+            antwort4:$('#A4').val(),
+            richtig:$('[name=rx]').val()
+            }
+        });
+    });
+        </script>
+</head>
+<body>
+  <form action="?" method="POST">
+      <h1>Neue Frage einfügen</h1>
+      <fieldset>          
+        <label class="normal" for="frage" id="frage">Neue Frage:</label>
+            <input type="text" id="frage" value="">
+        <label class="normal" for="n-a1" id="A1">Antwort  A:</label>
+           <input type="text" id="n-a1">
+        <br>
+        <label class="normal" for="n-a2" id="A2">Antwort  B:</label>
+        <input type="text" id="n-a2">
+        <br>
+        <label class="normal" for="n-a3" id="A3">Antwort  C:</label>
+        <input type="text" id="n-a3">
+        <br>
+        <label class="normal" for="n-a4" id="A4">Antwort  D:</label>
+        <input type="text" id="n-a4">
+
+        <h3>Richtige Antwort ist:</h3>
+        <label id="la-a1" class="light">Antwort  A:</label>
+        <input type="radio" name="rx" id="r-a1" value="">
+        <label id="la-a2" class="light">Antwort  B:</label>
+        <input type="radio" name="rx" id="r-a2" value="">
+        <label id="la-a3" class="light">Antwort  C:</label>
+        <input type="radio" name="rx" id="r-a3" value="">
+        <label id="la-a4" class="light">Antwort  D:</label>
+        <input type="radio" name="rx" id="r-a4" value="">
+        <br>
+        <br>
+
+        <select name="schwerigkeit" id="schwerigkeit">
+            <option>schwerigkeit</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        
+        </select>
+
+      </fieldset>
+      <button id="btn_submit">Speichern</button>
+        </form>
+</body>
+</html>
