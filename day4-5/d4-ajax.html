@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>Javascript Basics</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+$(document).ready(function(){
+	$('#btn').on('click', function(event) {
+		event.preventDefault();
+		var eingabe = $('#eingabe').val();
+		$.ajax({
+			url:'http://localhost/day4/ajax.php',
+			method: 'POST',
+			data:{x:eingabe},
+			success: function(response) {
+				//var antwort = JSON.parse( response);
+
+				var antwort = response;
+				
+				if (antwort.check == false ) {
+					$('#eingabe').addClass('error');
+				} else {
+					$('#eingabe').removeClass('error').val(antwort.x);
+				}
+			}
+		})
+	});
+});
+	</script>
+	<style>
+		body, input, button {
+			font: 30px arial;
+		}
+		.error {
+			background: rgb(196, 149, 149);
+			color: #1518c5;
+			font-family:'Times New Roman', Times, serif;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<form method="POST" action="http://localhost/day4/ajax.php" class="pure-form">
+		Eingabe: <input type="text" id="eingabe"><br><br>
+		<button id="btn" class="button-error pure-button">Starte Request</button>
+		<div id="ausgabe"></div>
+	</form>
+</div>
+</body>
+</html>

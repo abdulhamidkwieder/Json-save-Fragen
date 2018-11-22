@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style2.css">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>Fragen einfügen</title>
+    <script>
+
+        var ladeLoeschen = function () {
+            $.ajax({
+	       url:'http://localhost/day4/fragen-files/quiz.php',
+	       method:'POST',
+           data:{requestart:'loeschen', index:index},
+           success: function(response) {
+               ladeFragen();
+               alert('Frage gelöscht');
+           }
+        });
+        }
+        var  ladeFragen = function () {
+        $.ajax({
+	       url:'http://localhost/day4/fragen-files/quiz.php',
+	       method:'POST',
+	       data:{requestart:'ausgabe'},
+	       success:function(response){
+               var alleFragen = response.fragen;
+               var tabelle = $('<table border="1" id="table1">').appendTo('#ausgabe');
+
+               for (let i=0; i<alleFragen.length; i++) {
+                   var einFrage = alleFragen[i];
+                   var zeile = $('<tr>').appendTo(tabelle);
+                   var td1 = $('<td>').appendTo(zeile);
+                   var td2 = $('<td>').appendTo(zeile);
+                   td1.html(einFrage.frage);
+                   td1.on('click', function() {
+					$( 'ol' ).slideUp();	
+					$( 'ol', this).slideDown();
+				    })
+                    $( '<b>' ).html( einFrage.schwierigkeit ).appendTo( td1 );
+                   var liste = $('<ol>').appendTo(td1);
+
+                   for (let j= 0; j<einFrage.antworten.length; j++) {
+                       $('<li>').html(einFrage.antworten[j]).addClass(einFrage.richtig == j ? 'richtig': '').appendTo(liste);
+                   }
+                   $('<button>').html('Frage löschen').appendTo(td2);
+               }
+               			// was muss mit den Fragen passieren?
+			//vielleicht eine Tabelle erzeugen?
+			// Daten stehen in response
+        	}
+        });
+        }
+
+    var userHatGeklickt = false;
+    $(document).ready (function() {
+        ladeFragen();
+        //document.getElementById( 'new' ).onclick = function( event ) {}
+        $('#btn_submit').on('click', function(event){
+            event.preventDefault();
+            
+            if (userHatGeklickt == true ) {
+                return; // tu nichts mehr, abbrechen
+            }
+            var requestData = {
+            requestart:"speichern",
+            frage:$('#frage').val(),
+            antwort1:$('#antwort1').val(),
+            antwort2:$('#antwort2').val(),
+            antwort3:$('#antwort3').val(),
+            antwort4:$('#antwort4').val(),
+            richtig:$('input[name=richtig]:checked').val(),
+            schwierigkeit:$('#schwierigkeit').val()
+            }
+            
+            for (let i in requestData ) { // schleife durch objekt
+               
+			if ( requestData[i] == '' ) {
+				$( '#'+i ).addClass( 'error' );
+			} else {
+				$( '#'+i ).removeClass( 'error' );
+			}
+            }
+            if ($('.error').length == 0) {
+                // Formularelemente mit JS disablen
+            $( '#btn_submit' ).prop( 'disabled', true );
+			$( '<img>' ).attr( 'src', 'ajax-loader.gif').appendTo( '#btn_submit' );
+			userHatGeklickt = true;
+			$( '#overlay' ).show(); 
+               
+                $.ajax({
+				url:'http://localhost/day4/fragen-files/quiz.php',
+				method:'POST',
+				data:requestData,
+				success:function(response){
+                    userHatGeklickt = false; 
+                    $( '#btn_submit' ).prop( 'disabled', false );
+					$( '#btn_submit img' ).remove();
+					$( '#overlay' ).hide();                  
+					if ( response.gespeichert ) {
+						alert( 'Frage gespeichert!');
+						$( 'form' ).get(0).reset(); // Zurücksetzen
+					} else {
+						alert( 'Fehler, Frage konnte nicht gespeichert werden.');
+					}
+				},
+                error:function(){
+					userHatGeklickt = false;
+					$( '#btn_submit' ).prop( 'disabled', false );
+					$( '#btn_submit img' ).remove();
+					$( '#overlay' ).hide();
+					alert( 'Server nicht erreichbar.');
+                }
+			});
+            }
+        });
+    });
+        </script>
+        <style>
+            select.error, input.error { 
+                background: #faffbd; color:#00a1ce;
+            }
+            #overlay {
+               position:fixed; top:0; left:0; right:0;
+	    	   bottom:0; z-index:2147483647;
+	           background:rgba(0,0,0,0.4); display:none;
+            }
+            ol {
+                list-style-type: upper-latin; display:none;
+                }
+            .richtig {
+                color: green;
+            }
+            b {
+                margin-left:10px;
+                border:1px solid #000;
+                border-radius:50%;
+                display:inline-block;
+                padding:2px 10px;
+            }
+            #table1 {
+                max-width: 900px;
+                text-align: center;
+                margin: 5px auto;
+                padding: 10px 15px;
+                background: #8ee4af;
+                border-radius: 8px;
+                box-shadow: 3px 3px 3px rgba(77, 77, 77, 0.3) inset;
+                font-size: 16px;
+                font-style: normal;
+              }
+            #table1 button {
+              padding: 19px 39px 18px 39px;
+              color: #FFF;
+              background-color: #00a1ce;
+              font-size: 18px;
+              text-align: center;
+              font-style: normal;
+              border-radius: 5px;
+              width: 80%;
+              border: 1px solid #00a1ce;
+              border-width: 1px 1px 3px;
+              box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+              margin-bottom: 10px;
+              margin-top: 10px;
+            }
+        </style>
+</head>
+<body>
+  <form action="?" method="POST">
+      <h1>Neue Frage einfügen</h1>
+      <fieldset>          
+        <label class="normal" for="frage" >Neue Frage:</label>
+            <input type="text" id="frage" value="">
+        <label class="normal" for="antwort1">Antwort  A:</label>
+           <input type="text" id="antwort1">
+        <br>
+        <label class="normal" for="n-a2"  name="richtig" id="">Antwort  B:</label>
+           <input type="text" id="antwort2">
+        <br>
+        <label class="normal" for="n-a3"  name="richtig" id="">Antwort  C:</label>
+           <input type="text" id="antwort3">
+        <br>
+        <label class="normal" for="n-a4"  name="richtig" id="">Antwort  D:</label>
+           <input type="text" id="antwort4">
+
+        <h3>Richtige Antwort ist:</h3>
+        <label id="la-a1" class="light">Antwort  A:</label>
+        <input type="radio" name="richtig" value="0">
+        <label id="la-a2" class="light">Antwort  B:</label>
+        <input type="radio" name="richtig" value="1">
+        <label id="la-a3" class="light">Antwort  C:</label>
+        <input type="radio" name="richtig" value="2">
+        <label id="la-a4" class="light">Antwort  D:</label>
+        <input type="radio" name="richtig" value="3">
+        <br>
+        <br>
+
+        <select name="schwierigkeit" id="schwierigkeit">
+            <option value="">schwierigkeit</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>       
+        </select>
+      </fieldset>
+      <button id="btn_submit">Speichern</button>
+    </form>
+    <div id="ausgabe">
+            <!-- TABELLE mit JSON-Daten generieren -->
+      </div>
+
+        <div id="overlay"></div>
+</body>
+</html>

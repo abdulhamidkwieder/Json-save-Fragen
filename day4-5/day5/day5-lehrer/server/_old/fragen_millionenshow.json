@@ -1,0 +1,359 @@
+{"quiz":[
+
+  {"id":1, "frage":"Welche Jahreszeit folgt dem Sommer?",
+     "antworten":[
+       "Frühling",
+       "Winter",
+       "Herbst",
+       "Ostern"
+     ],
+     "schwierigkeit":1,"richtig":2
+   },
+  {"id":2, "frage":"Die Sonne ist ...?",
+    "antworten":[
+      "ein Planet",
+      "eine Galaxie",
+      "ein Stern",
+      "ein Magnetfeld"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":3, "frage":"Was ist die Hauptstadt von Frankreich?",
+    "antworten":[
+      "Paris",
+      "Berlin",
+      "London",
+      "Madrid"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+  {"id":4, "frage":"Der Chinese bereitet seine Speisen nicht im Kochtopf zu, sondern im....?",
+    "antworten":[
+      "Eimer",
+      "Glas",
+      "Wäschetrockner",
+      "Wok"
+    ],
+    "schwierigkeit":1,"richtig":3
+  },
+  {"id":5, "frage":"Wen will Rotkäppchen im Wald besuchen?",
+    "antworten":[
+      "die Mutter",
+      "den Jäger",
+      "die Großmutter",
+      "den Wolf"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":6, "frage":"Welche Farbe ist nicht Teil eines Regenbogens?",
+    "antworten":[
+      "schwarz",
+      "gelb",
+      "grün",
+      "orange"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+  {"id":7, "frage":"Wie heisst die Hauptstadt von China?",
+    "antworten":[
+      "Paris",
+      "Wien",
+      "Peking",
+      "Hongkong"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":8, "frage":"Was bedeutet das H in HTML",
+    "antworten":[
+      "Hybrid",
+      "Hyper",
+      "High",
+      "Hong"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":9, "frage":"Was bedeutet das L in HTML",
+    "antworten":[
+      "Hyper",
+      "Text",
+      "Markup",
+      "Language"
+    ],
+    "schwierigkeit":1,"richtig":3
+  },
+  {"id":10, "frage":"Was bedeutet das T in HTML",
+    "antworten":[
+      "Hyper",
+      "Text",
+      "Markup",
+      "Language"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":11, "frage":"Was bedeutet das M in HTML",
+    "antworten":[
+      "Hyper",
+      "Text",
+      "Markup",
+      "Language"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":12, "frage":"Wenn Nudeln bissfest gekocht sind, dann sind sie ...?",
+    "antworten":[
+      "in memoriam",
+      "ante portas",
+      "il silenzio",
+      "al dente"
+    ],
+    "schwierigkeit":1,"richtig":3
+  }
+,
+
+
+  {"id":13, "frage":"Wovon ernährt sich der Gorilla?",
+    "antworten":[
+      "Fleisch",
+      "Insekten",
+      "Blätter",
+      "Bambussprossen"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":14, "frage":"Wie heisst der höchste Berg Europas in den Alpen?",
+    "antworten":[
+      "Mont Blanc",
+      "Großglockner",
+      "Matterhorn",
+      "Dufourspitze"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+  {"id":15, "frage":"Wer wurde 2010 Fußballweltmeister?",
+    "antworten":[
+      "Brasilien",
+      "Deutschland",
+      "Spanien",
+      "Senegal"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":16, "frage":"Wer wurde 2006 Fußballweltmeister?",
+    "antworten":[
+      "Brasilien",
+      "Italien",
+      "Spanien",
+      "Frankreich"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":17, "frage":"Wie viele Tage hat ein Schaltjahr im gregorianischen Kalender?",
+    "antworten":[
+      "364",
+      "365",
+      "366",
+      "367"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":18, "frage":"Aus was wird Tofu gemacht?",
+    "antworten":[
+      "Tofublätter",
+      "Sojabohne",
+      "Maniokwurzel",
+      "Taroblüten"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":19, "frage":"Für welche Spezialität ist die französische Stadt Dijon bekannt?",
+    "antworten":[
+      "Champagner",
+      "Gänseleber",
+      "Austern",
+      "Senf"
+    ],
+    "schwierigkeit":1,"richtig":3
+  }
+
+,
+
+  {"id":20, "frage":"Welcher Staat hat die wenigsten Einwohner?",
+    "antworten":[
+      "Tuvalu",
+      "San Marino",
+      "Vatikan",
+      "Monako"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":21, "frage":"Neurodermitis ist eine ..?",
+      "antworten":[
+        "Nierenerkrankung",
+        "Hauterkrankung",
+        "Herzerkrankung",
+        "Zanherkrankung"
+      ],
+      "schwierigkeit":1,"richtig":1
+    },
+    {"id":22, "frage":"O du lieber Augustin, ...?",
+      "antworten":[
+        "alles am Kinn",
+        "nichts in der Birn",
+        "alles ist hin",
+        "dort ist er drin"
+      ],
+      "schwierigkeit":1,"richtig":2
+    },
+  {"id":23, "frage":"Welcher Fluss fließt durch Rom?",
+    "antworten":[
+      "Po",
+      "Reno",
+      "Tiber",
+      "Isonzo"
+    ],
+    "schwierigkeit":1,"richtig":2
+  },
+  {"id":24, "frage":"Wann war der erste Mensch auf dem Mond?",
+    "antworten":[
+      "1967",
+      "1969",
+      "1971",
+      "1973"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":25, "frage":"Wie heißt die Hauptstadt von Madagaskar?",
+    "antworten":[
+      "Antananarivo",
+      "Freetown",
+      "Lilongwe",
+      "Kampala"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+  {"id":26, "frage":"Wo finden die FußballWM 2018 statt?",
+    "antworten":[
+      "Quatar",
+      "Frankreich",
+      "Südkorea",
+      "Russland"
+    ],
+    "schwierigkeit":1,"richtig":3
+  },
+  {"id":27, "frage":"Welche jQuery-Methode versteckt HTML-Elemente?",
+      "antworten":[
+        "hidden()",
+        "invisible()",
+        "hide()",
+        "unshow()"
+      ],
+      "schwierigkeit":1,"richtig":2
+    },
+  {"id":28, "frage":"Wer war der Erfinder des Telefons?",
+    "antworten":[
+      "John Fitch",
+      "Alessandro Volta",
+      "Thomas Edison",
+      "Phillip Reis"
+    ],
+    "schwierigkeit":1,"richtig":3
+  }
+
+
+,
+
+  {"id":29, "frage":"Wer gewann erst einmal die Fußball WM? ",
+    "antworten":[
+      "Italien",
+      "Frankreich",
+      "Argentinien",
+      "Uruguay"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":30, "frage":"Wer gewann erst einmal die Fußball WM? ",
+    "antworten":[
+      "Italien",
+      "Frankreich",
+      "Argentinien",
+      "Uruguay"
+    ],
+    "schwierigkeit":1,"richtig":1
+  },
+  {"id":31, "frage":"Welche Staatsform hat Jamaika ? ",
+    "antworten":[
+      "Republik",
+      "Islamische Republik",
+      "Demokratie",
+      "Monarchie"
+    ],
+    "schwierigkeit":1,"richtig":3
+  },
+  {"id":32, "frage":"Welcher Planet hat den laengsten Tag ? ",
+    "antworten":[
+      "Venus",
+      "Pluto",
+      "Merkur",
+      "Saturn"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+{"id":33, "frage":"Microcebus ganzhorni ist ein...",
+  "antworten":[
+    "Fisch",
+    "Käfer",
+    "Affe",
+    "Vogel"
+  ],
+  "schwierigkeit":1,"richtig":2
+}
+,
+
+  {"id":34, "frage":"Wie heisst die Hauptstadt von Tuvalu?",
+    "antworten":[
+      "Funafuti",
+      "Melekeok",
+      "Avarua",
+      "Majuro"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+  {"id":35, "frage":"Nach wem wurde das Eisbärengehege im Tiergarten Schönbrunn benannt?",
+    "antworten":[
+      "Kaiserin Sissi",
+      "Bundeskanzler Figl",
+      "Bundespräsident Heinz Fischer",
+      "Kaiser Franz Josef"
+    ],
+    "schwierigkeit":1,"richtig":3
+  },
+  {"id":36, "frage":"Die steinernen Rundbauten in Apulien nennt man ...?",
+    "antworten":[
+      "Trulli",
+      "Salo",
+      "Fisichella",
+      "Barrichello"
+    ],
+    "schwierigkeit":1,"richtig":0
+  },
+  {"id":37, "frage":"Welcher vom Web-Server übermittelte HTTP-Header bewirkt, dass JavaScript auch AJAX-Aufrufe an Server anderer Domains senden bzw. das Ergebnis empfangen kann?",
+      "antworten":[
+        "Access-Control-Allow-Origin",
+        "X-Access-Control-Allow-Origin",
+        "Access-Control-Origin",
+        "X-Access-Control-Origin"
+      ],
+      "schwierigkeit":1,"richtig":0
+    },
+  {"id":38, "frage":"Wie heißt der Herrscher in Mozarts Oper Die Entführung aus dem Serail?",
+    "antworten":[
+      "Bassa Ali",
+      "Bassa Hassan",
+      "Bassa Omar",
+      "Bassa Selim"
+    ],
+    "schwierigkeit":1,"richtig":3
+  }
+
+
+],"maxid":38}

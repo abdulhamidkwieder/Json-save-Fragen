@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>Tabs</title>
+    <style>
+        #content {
+            border: 1px solid #000; width: 400px; height: 300px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+
+        $('nav a').on('click', function(event) {
+            event.preventDefault();
+            $.ajax({
+                method: 'GET',
+                url:'http//localhost/day4/day5/content.php',
+                success:function (html) {
+                    $('#content').empty().html(html);
+
+                }           
+             })
+        });
+    });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="http://localhost/day4/day5/a.php">A</a></li>
+            <li><a href="http://localhost/day4/day5/b.php">B</a></li>
+            <li><a href="http://localhost/day4/day5/c.php">C</a></li>
+        </ul>
+    </nav>
+    <section id="content">
+
+    </section>
+</body>
+</html>

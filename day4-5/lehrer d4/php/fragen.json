@@ -1,0 +1,24 @@
+{"fragen":[
+  {
+    "frage":"Was bedeutet HTML?",
+    "antworten":[
+      "Hyper Test Master Language",
+      "High Turbo Mega Language",
+      "Hyper Text Markup Language",
+      "Hyphens Text Mixed Language"
+    ],
+    "richtig":2,
+    "schwierigkeit":1
+  },
+  {
+    "frage":"Die Sonne ist ...?",
+    "antworten":[
+        "ein Planet",
+        "ein Mond",
+        "eine Galaxie",
+        "ein Stern"
+    ],
+    "richtig":3,
+    "schwierigkeit":1
+  }
+]}
